@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "babel": "npx babel script.js --watch --out-file script-compiled.js"
   },
   "keywords": [],
   "author": "",
