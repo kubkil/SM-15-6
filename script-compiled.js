@@ -77,6 +77,25 @@ var Stopwatch = function () {
       this.running = false;
       clearInterval(this.watch);
     }
+  }, {
+    key: 'lap',
+    value: function lap() {
+      var resultsList = document.querySelector('.results');
+      var resultItem = document.createElement('li');
+      resultItem.className = 'result';
+      resultsList.appendChild(resultItem);
+      resultItem.innerHTML = this.display.innerText;
+      this.reset();
+      this.start();
+    }
+  }, {
+    key: 'resetAll',
+    value: function resetAll() {
+      this.reset();
+      if (resultsList.resultItem.length > 0) {
+        resultsList.removeChild(resultItem);
+      }
+    }
   }]);
 
   return Stopwatch;
@@ -84,9 +103,12 @@ var Stopwatch = function () {
 
 // under class declaration because it is not hoisted, unlike function declarations
 // .stopwatch is an argument of constructor function from line 2
+// querySelector and getElement in one file? shouldn't I settle on one?
 
 
 var stopWatch = new Stopwatch(document.querySelector('.stopwatch'));
+var resultsList = document.querySelector('.results');
+var resultItem = document.createElement('li');
 
 var startButton = document.getElementById('start');
 // initializes start func - property of stopWatch object which is in turn an instance of Stopwatch class
@@ -102,6 +124,16 @@ stopButton.addEventListener('click', function () {
 var resetButton = document.getElementById('reset');
 resetButton.addEventListener('click', function () {
   return stopWatch.reset();
+});
+
+var lapButton = document.getElementById('lap');
+lapButton.addEventListener('click', function () {
+  return stopWatch.lap();
+});
+
+var resetAllButton = document.getElementById('reset-all');
+resetAllButton.addEventListener('click', function () {
+  return stopWatch.resetAll();
 });
 
 function pad0(value) {
