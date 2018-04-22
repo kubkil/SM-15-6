@@ -59,20 +59,19 @@ class Stopwatch {
   }
 
   lap() {
-    const resultsList = document.querySelector('.results');
-    const resultItem = document.createElement('li');
-    resultItem.className = 'result';
-    resultsList.appendChild(resultItem);
-    resultItem.innerHTML = this.display.innerText;
+    const lapResultsList = document.querySelector('.results');
+    const lapResultItem = document.createElement('li');
+    lapResultItem.className = 'result';
+    lapResultsList.appendChild(lapResultItem);
+    lapResultItem.innerHTML = this.display.innerText;
     this.reset();
     this.start();
   }
 
   resetAll() {
     this.reset();
-    if (resultsList.resultItem.length > 0) {
-      resultsList.removeChild(resultItem);
-    }
+    const resetAllResultsList = document.querySelector('.results');
+    resetAllResultsList.innerHTML = '';
   }
 
 }
@@ -81,8 +80,6 @@ class Stopwatch {
 // .stopwatch is an argument of constructor function from line 2
 // querySelector and getElement in one file? shouldn't I settle on one?
 const stopWatch = new Stopwatch(document.querySelector('.stopwatch'));
-const resultsList = document.querySelector('.results');
-const resultItem = document.createElement('li');
 
 const startButton = document.getElementById('start');
 // initializes start func - property of stopWatch object which is in turn an instance of Stopwatch class

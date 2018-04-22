@@ -80,11 +80,11 @@ var Stopwatch = function () {
   }, {
     key: 'lap',
     value: function lap() {
-      var resultsList = document.querySelector('.results');
-      var resultItem = document.createElement('li');
-      resultItem.className = 'result';
-      resultsList.appendChild(resultItem);
-      resultItem.innerHTML = this.display.innerText;
+      var lapResultsList = document.querySelector('.results');
+      var lapResultItem = document.createElement('li');
+      lapResultItem.className = 'result';
+      lapResultsList.appendChild(lapResultItem);
+      lapResultItem.innerHTML = this.display.innerText;
       this.reset();
       this.start();
     }
@@ -92,9 +92,8 @@ var Stopwatch = function () {
     key: 'resetAll',
     value: function resetAll() {
       this.reset();
-      if (resultsList.resultItem.length > 0) {
-        resultsList.removeChild(resultItem);
-      }
+      var resetAllResultsList = document.querySelector('.results');
+      resetAllResultsList.innerHTML = '';
     }
   }]);
 
@@ -107,8 +106,6 @@ var Stopwatch = function () {
 
 
 var stopWatch = new Stopwatch(document.querySelector('.stopwatch'));
-var resultsList = document.querySelector('.results');
-var resultItem = document.createElement('li');
 
 var startButton = document.getElementById('start');
 // initializes start func - property of stopWatch object which is in turn an instance of Stopwatch class
