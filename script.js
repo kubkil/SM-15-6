@@ -13,10 +13,10 @@ class Stopwatch {
       seconds: 0,
       miliseconds: 0
     };
-    if (this.running) {
-      this.stop();
-    }
-    this.print();
+    // if (this.running) {
+    //   this.stop();
+    // }
+    // this.print();
   }
 
   print() {
